@@ -1,0 +1,37 @@
+
+    <div><h1>Item Details</h1></div>
+    <%= link_to "View Deleted Comments", deleted_comments_path(@item), class:"btn btn-primary form-control" %>
+    <div class="d-flex"> 
+        <p class="h3 p-2">Name: <%=@item.name%></p>
+        <p class="h3 p-2">Quantity: <%=@item.quantity%></p>
+        <p class="h3 p-2">Unit_Price: <%=@item.price%></p>
+    </div>
+
+   
+    <ul class="list-group">
+        <%if @item.comments.count>0%>
+            <% @item.comments.where(dell: false).each do |comment|%>
+                
+                <li class="list-group-item">
+                    <%=comment.text%>
+                    <%=form_with url: dell_comment_path(comment),method: "put" do |f| %>
+                        <%=f.submit "dell"%>
+                    <%end%>
+                   
+                 </li>
+                 
+            <%end%>
+        <%else%>
+                <li class="list-group-item">No comments</li>
+        <%end%>
+
+    </ul>
+   
+ 
+<%= render partial: 'comments/form'%> 
+
+<div class="btn-div">
+    <button class="back-btn">
+        <%=link_to 'Back', root_path%>
+    </button>
+</div>
