@@ -1,0 +1,6 @@
+<%= form_with model:[@item, @item.comments.create],  class:"input-form" do |f|%>
+    
+    <%= f.text_area :text,  required: true, placeholder:"Add Comment..." %><br>
+
+    <%= f.submit "Add Comment", class: "submit" %>
+<%end%>
