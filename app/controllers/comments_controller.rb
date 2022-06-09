@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     def destroy
       @comment = Comment.find(params[:id])
       @comment.destroy
-      redirect_to dell_comment_path(@comment)
+      redirect_to deleted_comments_path(@comment.item_id)
       
     end
 
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
         redirect_to show_path(@comment.item_id)
       else
         @comment.update(dell: false)
-        redirect_to dell_comment_path(@comment)
+        redirect_to deleted_comments_path(@comment.item_id)
       end
     end
 
