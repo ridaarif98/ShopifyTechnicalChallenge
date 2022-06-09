@@ -1,0 +1,10 @@
+<%= form_with model:[@item, @item.comments.create],  class:"input-form" do |f|%>
+    <div class="form-div" >
+    <div class="mb-3 col-sm-8"> 
+    <%= f.text_area :text,  required: true, class:"form-control m-3", placeholder:"Add Comment..." %><br>
+    </div>
+    <div class="mb-3 col-sm-2">
+    <%= f.submit "Add Comment",class:"btn btn-primary form-control m-3" %>
+    </div>
+    </div>
+<%end%>

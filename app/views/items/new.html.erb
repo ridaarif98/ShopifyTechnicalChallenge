@@ -1,0 +1,32 @@
+<h2 class="heading m-3">Add Item</h2>
+<div>
+<%= form_with  model: @item, class:"input-form"  do |f|%>
+    <div class="form-div m-3" >
+
+    <div class="mb-3 col-sm-8">
+    <%= f.label :name, class:"form-label" %><br>
+    <%= f.text_field :name, class:"form-control",  required: true, id:"name", placeholder: 'Item name'%><br>
+    </div>
+
+    <div class="mb-3 col-sm-8">
+    <%= f.label :quantity, class:"form-label" %><br>
+    <%= f.number_field :quantity,  class:"form-control" , required: true, id:"quantity",  placeholder: '1'%><br>
+    </div>
+
+    <div class="mb-3 col-sm-8">
+    <%= f.label :unit_price, class:"form-label" %><br>
+    <%= f.number_field :price ,  class:"form-control" , required: true, id:"price", placeholder: '1',step: :any%><br>
+    </div>
+
+    <div class="mb-3 col-sm-2">
+    <%= f.submit "Create Item", class:"btn btn-primary form-control" %>
+    </div>
+    </div>
+<%end%>
+<div class="form-div" >
+  <div class="mb-3 col-sm-2">
+    
+        <%=link_to 'Back', items_path, class:"btn btn-primary form-control m-3"%>
+  </div>
+</div>
+</div>
